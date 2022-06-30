@@ -9,7 +9,7 @@ class News {
 
         news.forEach((item, idx) => {
             
-            const newsClone = newsItemTemp!.content.cloneNode(true);
+            const newsClone = (document.getElementById("newsItemTemp") as HTMLElement).content.cloneNode(true);
             if(newsClone!==null)
             if(newsItemTemp!==null)
                 
