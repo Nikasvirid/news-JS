@@ -9,7 +9,7 @@ class News {
 
         news.forEach((item, idx) => {
             
-            const newsClone = document.getElementById("newsItemTemp").content.cloneNode(true) ;
+            const newsClone = (document.getElementById("newsItemTemp")as HTMLElement).content.cloneNode(true) ;
             
             
                 
@@ -24,8 +24,8 @@ class News {
                  })`;
               
                 }   
-            newsClone.querySelector('.news__meta-author').textContent = item.author || item.source.name;
-            newsClone.querySelector('.news__meta-date').textContent = item.publishedAt
+            (newsClone.querySelector('.news__meta-author')as HTMLElement).textContent = item.author || item.source.name;
+            (newsClone.querySelector('.news__meta-date')as HTMLElement).textContent = item.publishedAt
                 .slice(0, 10)
                 .split('-')
                 .reverse()
@@ -39,8 +39,8 @@ class News {
             fragment.append(newsClone);
         })
 
-        document.querySelector('.news').innerHTML = '';
-        document.querySelector('.news').appendChild(fragment);
+        document.querySelector('.news')!.innerHTML = '';
+        document.querySelector('.news')!.appendChild(fragment);
     }
 }
 
