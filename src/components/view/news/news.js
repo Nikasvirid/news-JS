@@ -9,21 +9,21 @@ class News {
 
         news.forEach((item, idx) => {
             
-            const newsClone = (document.getElementById("newsItemTemp") as HTMLElement).content.cloneNode(true);
-            if(newsClone!==null)
-            if(newsItemTemp!==null)
+            const newsClone = document.getElementById("newsItemTemp").content.cloneNode(true) ;
+            
+            
                 
             
            
 
                  if (idx % 2){
-                    (newsClone.querySelector(selectors,'.news__item')as HTMLDivElement).classList.add('alt');
+                    newsClone.querySelector(selectors,'.news__item').classList.add('alt');
 
                  newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${
                  item.urlToImage || 'img/news_placeholder.jpg'
                  })`;
               
-            }    
+                }   
             newsClone.querySelector('.news__meta-author').textContent = item.author || item.source.name;
             newsClone.querySelector('.news__meta-date').textContent = item.publishedAt
                 .slice(0, 10)
@@ -39,13 +39,11 @@ class News {
             fragment.append(newsClone);
         })
 
-        document!.querySelector('.news')!.innerHTML = '';
-        document!.querySelector('.news')!.appendChild(fragment);
+        document.querySelector('.news').innerHTML = '';
+        document.querySelector('.news').appendChild(fragment);
     }
 }
 
 export default News;
-function selectors(selectors: any, arg1: string): HTMLDivElement {
-    throw new Error('Function not implemented.');
-}
+ 
 
