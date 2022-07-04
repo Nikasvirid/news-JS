@@ -1,3 +1,4 @@
+import Sources from '../sources/sources';
 import './news.css';
 
 class News {
@@ -9,7 +10,7 @@ class News {
 
         news.forEach((item, idx) => {
             
-            const newsClone = document.getElementById("newsItemTemp").content.cloneNode(true) ;
+            const newsClone = (document.getElementById("newsItemTemp")as HTMLTemplateElement).content.cloneNode(true) ;
             
             
                 
@@ -17,9 +18,9 @@ class News {
            
 
                  if (idx % 2){
-                    newsClone.querySelector(selectors,'.news__item') .classList.add('alt');
+                    (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
 
-                 newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${
+                 (newsClone.querySelector('.news__meta-photo')as HTMLElement).style.backgroundImage = `url(${
                  item.urlToImage || 'img/news_placeholder.jpg'
                  })`;
               
@@ -39,8 +40,8 @@ class News {
             fragment.append(newsClone);
         })
 
-        document.querySelector('.news').innerHTML = '';
-        document.querySelector('.news').appendChild(fragment);
+        document.querySelector('.news')!.innerHTML = '';
+        document.querySelector('.news')!.appendChild(fragment);
     }
 }
 

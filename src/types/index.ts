@@ -10,7 +10,7 @@ export interface EverythingArticles{
 };
 
 export interface Sources{
-
+  id:string;
   name: string;
   description: string;
   category:string;

@@ -1,13 +1,13 @@
 import './sources.css';
 
 class Sources {
-    draw(data) {
+    draw(data:Sources) {
         
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp');
 
         data.forEach((item) => {
-            const sourceClone =document.getElementById ('sourceItemTemp').content.cloneNode(true);
+            const sourceClone =(document.getElementById ('sourceItemTemp')as HTMLTemplateElement).content.cloneNode(true);
             if(sourceClone===null){
                 throw Error('error')
             }
@@ -25,6 +25,7 @@ class Sources {
         });
 
         document.querySelector('.sources').append(fragment);
+        if
     }
 }
 
