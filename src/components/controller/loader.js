@@ -1,13 +1,17 @@
+import Sources from "../view/sources/sources";
+import AppLoader from "./appLoader";
+import AppController from "./controller";
+
 class Loader {
-    baseLink:string
-    options:string
+    baseLink
+    options
     constructor(baseLink, options) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} },
+        { endpoint, options={} },
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -26,7 +30,7 @@ class Loader {
     }
 
     makeUrl(options, endpoint) {
-        const urlOptions = { ...this[endpoint].options, ...options };  ///endpoint
+        const urlOptions = { ...this.options, ...options };  ///endpoint
 
         let url = `${this.baseLink}${endpoint}?`;
 

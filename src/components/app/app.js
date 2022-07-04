@@ -1,9 +1,9 @@
 import AppController from '../controller/controller';
-import { AppView } from '../view/appView';
+import { AppView } from '../view/appView.js';
 
 class App {
-    controller:AppController;
-    view:AppView;
+    controller;
+    view;
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
@@ -11,8 +11,8 @@ class App {
 
     start() {
         (document
-            .querySelector('.sources')as HTMLElement)
-            .addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
+            .querySelector('.sources'))
+            .addEventListener('click', (e) => this.controller.getNews(e, (data)  => this.view.drawNews(data)));
         this.controller.getSources((data) => this.view.drawSources(data));
     }
 }

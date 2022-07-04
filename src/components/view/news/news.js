@@ -9,7 +9,7 @@ class News {
 
         news.forEach((item, idx) => {
             
-            const newsClone = (document.getElementById("newsItemTemp")as HTMLElement).content.cloneNode(true) ;
+            const newsClone = document.getElementById("newsItemTemp").content.cloneNode(true) ;
             
             
                 
@@ -24,14 +24,14 @@ class News {
                  })`;
               
                 }   
-            (newsClone.querySelector('.news__meta-author')as HTMLElement).textContent = item.author || item.source.name;
-            (newsClone.querySelector('.news__meta-date')as HTMLElement).textContent = item.publishedAt
+            newsClone.querySelector('.news__meta-author').textContent = item.author || item.source.name;
+            newsClone.querySelector('.news__meta-date').textContent = item.publishedAt
                 .slice(0, 10)
                 .split('-')
                 .reverse()
                 .join('-');
 
-            newsClone.querySelector('.news__description-title').textContent = item.title;
+            newsClone.querySelector('.news__description-title') .textContent = item.title;
             newsClone.querySelector('.news__description-source').textContent = item.source.name;
             newsClone.querySelector('.news__description-content').textContent = item.description;
             newsClone.querySelector('.news__read-more a').setAttribute('href', item.url);
@@ -39,8 +39,8 @@ class News {
             fragment.append(newsClone);
         })
 
-        document.querySelector('.news')!.innerHTML = '';
-        document.querySelector('.news')!.appendChild(fragment);
+        document.querySelector('.news').innerHTML = '';
+        document.querySelector('.news').appendChild(fragment);
     }
 }
 

@@ -7,6 +7,7 @@ class AppLoader extends Loader {
         })
     }
 }
+const button= document.querySelectorAll(".sources buttons");
 
 fetch("https://newsapi.org/v2/everything?q=putin&apiKey=9c981a17c97342a2b7b6ab85e4c870e3")
 
@@ -25,4 +26,5 @@ fetch("https://newsapi.org/v2/everything?q=putin&apiKey=9c981a17c97342a2b7b6ab85
   .catch(function (error) {
     console.log('error', error)
   })
+  
 export default AppLoader;
