@@ -2,7 +2,8 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const EslintPlugin = require('eslint-webpack-plugin')
+const EslintPlugin = require('eslint-webpack-plugin');
+
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index'),
     mode: 'development',
@@ -12,11 +13,11 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-            { test: /\.ts$/i, use: 'ts-loader' }
+            { test: /\.ts$/i, use: 'ts-loader' },
         ],
     },
     resolve: {
-        extensions: ['.js','.ts'],
+        extensions: ['.ts', '.js'],
     },
     output: {
         filename: 'bundle.js',
@@ -26,10 +27,9 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
-            
         }),
         new CleanWebpackPlugin(),
-        new EslintPlugin({ extensions: 'ts' })
+        new EslintPlugin({ extensions: 'ts' }),
     ],
 };
 
