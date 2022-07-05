@@ -4,7 +4,7 @@ export interface Sources {
     name: string;
     status: string;
 }
-export interface Articles {
+export interface Article {
     author: string | null;
     content: string;
     description: string;
@@ -18,7 +18,7 @@ export interface News {
     status: string;
     totalResults?: number;
     sources?: [];
-    articles?: Articles[];
+    articles?: Article[];
 }
 
 export interface Portal {
