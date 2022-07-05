@@ -1,6 +1,6 @@
 {
     "parser": "@typescript-eslint/parser",
-    "plugins": ["prettier", "import","@typescript-eslint"],
+    "plugins": ["prettier", "import", "@typescript-eslint"],
     "extends": [
         "plugin:prettier/recommended",
         "prettier",
@@ -21,6 +21,5 @@
         "no-console": 0,
         "class-methods-use-this": "off",
         "@typescript-eslint/no-explicit-any": 2
-         
     }
 }
