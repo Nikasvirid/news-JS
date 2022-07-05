@@ -13,7 +13,8 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-            { test: /\.ts$/i, use: 'ts-loader' },
+            { test: /\.ts$/i,
+             use: ['ts-loader'] },
         ],
     },
     resolve: {
@@ -21,7 +22,7 @@ const baseConfig = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, './dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
