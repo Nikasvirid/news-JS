@@ -1,19 +1,19 @@
-import News from '../view/news/news';
-import Sources from '../view/sources/sources';
 import AppLoader from './appLoader';
+import { Sources, News, Endpoint } from '../../types/index';
 
 class AppController extends AppLoader {
-    getSources(callback:(data:Sources)=>void) {
-        super.getResp(
+    public getSources(callback: (data: Sources) => void) {
+        super.getResp<Sources>(
             {
-                endpoint: 'sources',
+                endpoint: Endpoint.sources,
             },
-            callback:data<T>
+            callback
         );
     }
 
-    getNews(e:Event, callback:(data:News)=>void) {
-        let target = e.target as HTMLElement;
+    public getNews(e: Event, callback: (data: News) => void) {
+        let target: HTMLElement;
+        target = <HTMLElement>e.target;
         const newsContainer = e.currentTarget as HTMLElement;
 
         while (target !== newsContainer) {
@@ -21,9 +21,9 @@ class AppController extends AppLoader {
                 const sourceId = target.getAttribute('data-source-id') as string;
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp(
+                    super.getResp<News>(
                         {
-                            endpoint: 'everything',
+                            endpoint: Endpoint.everything,
                             options: {
                                 sources: sourceId,
                             },
