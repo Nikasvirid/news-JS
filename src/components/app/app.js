@@ -2,8 +2,8 @@ import AppController from '../controller/controller';
 import { AppView } from '../view/appView.js';
 
 class App {
-    controller;
-    view;
+    
+    
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();

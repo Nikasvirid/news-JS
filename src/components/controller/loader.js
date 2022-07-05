@@ -3,15 +3,13 @@ import AppLoader from "./appLoader";
 import AppController from "./controller";
 
 class Loader {
-    baseLink
-    options
-    constructor(baseLink:String, options:string) {
+    constructor(baseLink, options) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint:, options={} },
+        { endpoint, options = {} },
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -29,9 +27,8 @@ class Loader {
         return res;
     }
 
-    makeUrl(options:{}, endpoint:string) {
-        const urlOptions = { ...this.options, ...options };  ///endpoint
-
+    makeUrl(options, endpoint) {
+        const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
@@ -41,7 +38,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load<T>(method:string, endpoint:string, callback:(data:T), options = {}):void {
+    load(method, endpoint, callback, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
