@@ -1,5 +1,5 @@
 export type Callback<T> = (data: T) => void;
-export interface Sources {
+export interface Sources1 {
     id: string;
     name: string;
     status: string;
@@ -9,12 +9,12 @@ export interface Article {
     content: string;
     description: string;
     publishedAt: string;
-    source: Sources;
+    sources: Sources1;
     title: string;
     url: string;
     urlToImage: string;
 }
-export interface News {
+export interface News1 {
     status: string;
     totalResults?: number;
     sources?: [];

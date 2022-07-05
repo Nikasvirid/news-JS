@@ -16,7 +16,7 @@ class News {
                 item.urlToImage || 'img/news_placeholder.jpg'
             })`;
             (newsClone.querySelector('.news__meta-author') as HTMLElement).textContent =
-                item.author || item.source.name;
+                item.author || item.sources.name;
             (newsClone.querySelector('.news__meta-date') as HTMLElement).textContent = item.publishedAt
                 .slice(0, 10)
                 .split('-')
@@ -24,7 +24,7 @@ class News {
                 .join('-');
 
             (newsClone.querySelector('.news__description-title') as HTMLElement).textContent = item.title;
-            (newsClone.querySelector('.news__description-source') as HTMLElement).textContent = item.source.name;
+            (newsClone.querySelector('.news__description-source') as HTMLElement).textContent = item.sources.name;
             (newsClone.querySelector('.news__description-content') as HTMLElement).textContent = item.description;
             (newsClone.querySelector('.news__read-more a') as HTMLElement).setAttribute('href', item.url);
 
