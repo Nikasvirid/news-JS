@@ -2,12 +2,12 @@ import Loader from './loader'
 
 class AppLoader extends Loader {
     constructor() {
-        super('https://newsapi.org/v2/',{
+        super('https://nodenews.herokuapp.com/',{
             apiKey: '9c981a17c97342a2b7b6ab85e4c870e3', //  https://newsapi.org/
         })
     }
 }
-const button= document.querySelector(".sources buttons");
+
 
 fetch("https://newsapi.org/v2/everything?q=putin&apiKey=9c981a17c97342a2b7b6ab85e4c870e3")
 
