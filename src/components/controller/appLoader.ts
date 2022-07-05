@@ -6,20 +6,5 @@ class AppLoader extends Loader {
         });
     }
 }
-fetch('https://nodenews.herokuapp.com/')
-    .then(function (response) {
-        if (response.status !== 200) {
-            return Promise.reject(new Error(response.statusText));
-        }
-        return Promise.resolve(response);
-    })
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log('data', data);
-    })
-    .catch(function (error) {
-        console.log('error', error);
-    });
+
 export default AppLoader;
